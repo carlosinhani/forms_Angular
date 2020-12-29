@@ -7,6 +7,7 @@
 
 ### PLATAFORMAS: [<img src="https://img.shields.io/badge/loiane.training-DD0031?style=for-the-badge&logo=angular&logoColor=white">](https://loiane.training/dashboard) 
 <br>
+
 -----------------------------------------------------------------------------------------------
 
 **PROFESSORA:** **_Loiane_**
