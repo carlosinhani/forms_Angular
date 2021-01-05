@@ -38,7 +38,7 @@
         <label for="cep" class="control-label">CEP</label>
         <input type="text" class="form-control" id="cep"
           name="cep" ngModel required #cep="ngModel"
-          (blur)="consultaCEP($event.target.value)">
+          (blur)="consultaCEP($event.target.value, f)">
         <campo-control-erro
           [mostrarErro]="verificaValidTouched(cep)"
           msgErro=" CEP é obrigatório.">
@@ -68,8 +68,7 @@
       </div>
       <div class="col-sm-12">
         <input type="rua" class="form-control" name="rua"
-        id="rua"  [ngModel]="usuario.rua"
-        required rua #rua="ngModel" readonly>
+        id="rua" ngModel required #rua="ngModel" readonly>
         <campo-control-erro
           [mostrarErro]="verificaValidTouched(rua)"
           msgErro="Rua Obrigadório.">
