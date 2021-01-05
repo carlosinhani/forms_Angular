@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import 'rxjs/add/operator/map';
+// import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'template-form',
@@ -19,7 +19,12 @@ export class TemplateFormComponent implements OnInit {
   onSubmit(form){
     console.log(form);
 
+    // form.value
     // console.log(this.usuario);
+
+    this.http.post('https://httpbin.org/post', JSON.stringify(form.value))
+      // .map(res => res)
+      .subscribe(dados => console.log(dados));
   }
 
   constructor(private http: HttpClient) { }
@@ -53,7 +58,7 @@ export class TemplateFormComponent implements OnInit {
         this.resetaDadosForm(form);
 
         this.http.get(`//viacep.com.br/ws/${cep}/json`)
-        .map(dados => dados.json())
+        // .map(dados => dados.json())
         .subscribe(dados => this.populaDadosForm(dados, form));
       }
     }
@@ -79,7 +84,7 @@ export class TemplateFormComponent implements OnInit {
         // cep: dados.cep,
         complemento: dados.complemento,
         bairro: dados.bairro,
-        cidade: dados.cidade ,
+        cidade: dados.localidade,
         estado: dados.uf
       }
      });
