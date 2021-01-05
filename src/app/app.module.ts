@@ -13,6 +13,7 @@ import { TemplateFormModule } from './template-form/template-form.module';
     AppComponent,
     DataFormComponent,
 
+
   ],
   imports: [
     BrowserModule,
