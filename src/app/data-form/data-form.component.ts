@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'data-form',
   templateUrl: './data-form.component.html',
   styleUrls: ['./data-form.component.css']
@@ -21,6 +22,7 @@ export class DataFormComponent implements OnInit {
      private http: HttpClient
      ) { }
 
+
   ngOnInit() {
 
     // this.formulario = new FormGroup({
@@ -30,7 +32,14 @@ export class DataFormComponent implements OnInit {
 
     this.formulario = this.formBuilder.group({
         nome: [null, Validators.required],
-        email: [null, [Validators.required, Validators.email]]
+        email: [null, [Validators.required, Validators.email]],
+        cep: [null, Validators.required],
+        numero: [null, Validators.required],
+        complemento: [null],
+        rua:[null, Validators.required],
+        bairro: [null, Validators.required],
+        cidade: [null, Validators.required],
+        estado: [null, Validators.required]
     });
   }
   onSubmit(){
@@ -40,7 +49,7 @@ export class DataFormComponent implements OnInit {
        JSON.stringify(this.formulario.value))
       .subscribe(dados => { console.log(dados);
 
-        //reseta o form
+        // reseta o form
         // this.formulario.reset();
         // this.resetar();
       },
@@ -51,7 +60,7 @@ export class DataFormComponent implements OnInit {
     this.formulario.reset();
   }
 
-  verificaValidTouched(campo){
+  verificaValidTouched(campo: string){
    return !this.formulario.get(campo).valid && this.formulario.get(campo).touched;
   }
 
@@ -62,7 +71,7 @@ export class DataFormComponent implements OnInit {
     }
   }
 
-  aplicaCssErro(campo){
+  aplicaCssErro(campo: string){
     return {
       'has-error': this.verificaValidTouched(campo),
       'has-feedback': this.verificaValidTouched(campo)
