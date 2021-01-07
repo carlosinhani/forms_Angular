@@ -7,9 +7,7 @@
       <input type="text" class="form-control" name="nome"
         id="nome" placeholder="Nome" [ngModel]="usuario.nome"
         required #nome="ngModel">
-        <!-- <div>
-          {{ nome.className }}
-        </div> -->
+
       <campo-control-erro
         [mostrarErro]="verificaValidTouched(nome)"
         msgErro="Nome é obrigadório.">
