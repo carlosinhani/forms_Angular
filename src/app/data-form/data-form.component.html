@@ -40,7 +40,8 @@
         <div class="col-md-3" [ngClass]=" aplicaCssErro('endereco.cep')">
           <label for="cep" class="control-label">CEP</label>
           <input type="text" class="form-control" id="cep"
-          formControlName="cep">
+          formControlName="cep"
+          (blur)="consultaCEP()">
           <campo-control-erro
             [mostrarErro]="verificaValidTouched('endereco.cep')"
             msgErro=" CEP é obrigatório.">
@@ -70,7 +71,7 @@
         </div>
         <div class="col-sm-12">
           <input type="rua" class="form-control" id="rua"
-          formControlName="rua" readonly>
+          formControlName="rua" >
           <campo-control-erro
             [mostrarErro]="verificaValidTouched('endereco.rua')"
             msgErro="Rua Obrigadório.">
@@ -82,7 +83,7 @@
         <div class="col-md-5">
           <label for="bairro" class="control-label">Bairro</label>
           <input type="text" class="form-control" id="bairro"
-          formControlName="bairro" readonly>
+          formControlName="bairro" >
           <campo-control-erro
             [mostrarErro]="verificaValidTouched('endereco.bairro')"
             msgErro="Bairro é obrigatório.">
@@ -92,7 +93,7 @@
       <div class="col-md-4" [ngClass]=" aplicaCssErro('endereco.cidade')">
         <label for="cidade" class="control-label">Cidade</label>
         <input type="text" class="form-control" id="cidade"
-        formControlName="cidade" readonly>
+        formControlName="cidade" >
           <campo-control-erro
             [mostrarErro]="verificaValidTouched('endereco.cidade')"
             msgErro="Cidade é obrigatório.">
@@ -102,7 +103,7 @@
       <div class="col-md-3" [ngClass]=" aplicaCssErro('endereco.estado')">
         <label for="estado" class="control-label">Estado</label>
         <input type="text" class="form-control" id="estado"
-        formControlName="estado" readonly>
+        formControlName="estado" >
           <campo-control-erro
             [mostrarErro]="verificaValidTouched('endereco.estado')"
             msgErro="Estado é obrigatório.">
