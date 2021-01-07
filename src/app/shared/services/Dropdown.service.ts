@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { map } from '../../../../node_modules/rxjs/operators';
 import { EstadoBr } from '../models/estado-br';
 
 
