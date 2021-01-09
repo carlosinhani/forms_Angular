@@ -24,4 +24,13 @@ constructor(
       { nome: 'Dev', nivel: 'Senior', desc: 'Dev Sr'}
     ];
   }
+
+  getTecnologias(){
+    return [
+      { nome: 'angular', desc: 'Angular'},
+      { nome: 'react', desc: 'React'},
+      { nome: 'javascript', desc: 'JavaScript'},
+      { nome: 'java', desc: 'Java'},
+    ];
+  }
 }
