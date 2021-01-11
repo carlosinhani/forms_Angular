@@ -33,4 +33,11 @@ constructor(
       { nome: 'java', desc: 'Java'},
     ];
   }
+
+  getNewsletter() {
+    return [
+      { valor: 's', desc: 'Sim'},
+      { valor: 'n', desc: 'Não'},
+    ];
+  }
 }
