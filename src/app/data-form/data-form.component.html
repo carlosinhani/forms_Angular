@@ -158,13 +158,17 @@
   <div class="col-md-3" [ngClass]="aplicaCssErro('frameworks')">
     <label for="frameworks">Frameworks</label>
     <div id="frameworks" class="row">
-      <div class="form-check" class="col-sm-4"
+      <div class="form-check" class="col-sm-5"
         formArrayName="frameworks"
         *ngFor="let item of formulario.get('frameworks').controls; let i = index" >
         <label class="form-check-label" for="defaultCheck1">
           <input type="checkbox" [formControlName]="i" > {{frameworks[i]}}
         </label>
       </div>
+      <campo-control-erro
+      [mostrarErro]="!formulario.get('frameworks').valid"
+      msgErro="Selecione 1 opção">
+    </campo-control-erro>
     </div>
   </div>
 </div>
