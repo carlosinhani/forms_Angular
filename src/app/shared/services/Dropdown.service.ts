@@ -27,8 +27,8 @@ constructor(
 
   getTecnologias(){
     return [
-      { nome: 'angular', desc: 'Angular'},
-      { nome: 'react', desc: 'React'},
+      { nome: 'html', desc: 'HTML'},
+      { nome: 'php', desc: 'PHP'},
       { nome: 'javascript', desc: 'JavaScript'},
       { nome: 'java', desc: 'Java'},
     ];
