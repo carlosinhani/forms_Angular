@@ -43,8 +43,12 @@
           formControlName="cep"
           (blur)="consultaCEP()">
           <campo-control-erro
-            [mostrarErro]="verificaValidTouched('endereco.cep')"
+            [mostrarErro]="verificaRequired('endereco.cep')"
             msgErro=" CEP é obrigatório.">
+          </campo-control-erro>
+          <campo-control-erro
+            [mostrarErro]="formulario.get('endereco.cep').hasError('cepInvalido')"
+            msgErro=" CEP inválido">
           </campo-control-erro>
         </div>
 
@@ -160,7 +164,7 @@
     <div id="frameworks" class="row">
       <div class="form-check" class="col-sm-5"
         formArrayName="frameworks"
-        *ngFor="let item of formulario.get('frameworks').controls; let i = index" >
+        *ngFor="let item of getFrameworksControls(); let i = index">
         <label class="form-check-label" for="defaultCheck1">
           <input type="checkbox" [formControlName]="i" > {{frameworks[i]}}
         </label>
