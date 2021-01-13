@@ -6,8 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormDebugComponent } from './form-debug/form-debug.component';
 import { CampoControlErroComponent } from './campo-control-erro/campo-control-erro.component';
 import { DropdownService } from './services/Dropdown.service';
-
-
+import { ErrorMsgComponent } from './error-msg/error-msg.component';
 
 
 
@@ -15,8 +14,7 @@ import { DropdownService } from './services/Dropdown.service';
   declarations: [
     FormDebugComponent,
     CampoControlErroComponent,
-
-
+    ErrorMsgComponent,
   ],
   imports: [
     CommonModule,
@@ -26,7 +24,8 @@ import { DropdownService } from './services/Dropdown.service';
   ],
   exports: [
     FormDebugComponent,
-    CampoControlErroComponent
+    CampoControlErroComponent,
+    ErrorMsgComponent
   ],
   providers: [
     DropdownService

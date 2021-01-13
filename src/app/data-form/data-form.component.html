@@ -7,10 +7,8 @@
       <input type="text" class="form-control" formControlName="nome"
         id="nome" placeholder="Nome">
 
-      <campo-control-erro
-        [mostrarErro]="verificaValidTouched('nome')"
-        msgErro="Nome é obrigadório.">
-      </campo-control-erro>
+      <error-msg
+        [control]="formulario.get('nome')" label="Nome"></error-msg>
     </div>
   </div>
 
@@ -40,7 +38,7 @@
       </campo-control-erro>
       <campo-control-erro
         [mostrarErro]="formulario.get('email').hasError('emailInvalido')"
-        msgErro="Email já cadastrado!">
+        msgErro="Email já!">
       </campo-control-erro>
     </div>
   </div>

@@ -10,6 +10,7 @@ import { FormValidations } from '../shared/form-validations';
 import { VerificaEmailService } from './services/verifica-email.service';
 import { map } from 'rxjs/operators';
 
+
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'data-form',
@@ -62,7 +63,7 @@ export class DataFormComponent implements OnInit {
     // });
 
     this.formulario = this.formBuilder.group({
-        nome: [null, Validators.required],
+        nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(5)]],
         email: [null, [Validators.required, Validators.email], [this.validarEmail.bind(this)]],
         confirmarEmail: [null, [FormValidations.equalsTo('email')]],
 
