@@ -30,6 +30,18 @@
         [mostrarErro]="verificarEmailInvalido()"
         msgErro="Email inválido.">
       </campo-control-erro>
+      <campo-control-erro
+        [mostrarErro]="formulario.get('email').status === 'PENDING'"
+        msgErro="Validando email...">
+      </campo-control-erro>
+      <campo-control-erro
+        [mostrarErro]="formulario.get('email').status === 'VALID'"
+        msgErro="Email válido!">
+      </campo-control-erro>
+      <campo-control-erro
+        [mostrarErro]="formulario.get('email').hasError('emailInvalido')"
+        msgErro="Email já cadastrado!">
+      </campo-control-erro>
     </div>
   </div>
 
