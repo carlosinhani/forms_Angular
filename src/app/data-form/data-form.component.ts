@@ -5,10 +5,11 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 import { DropdownService } from './../shared/services/Dropdown.service';
 import { EstadoBr } from './../shared/models/estado-br';
 import { ConsultaCepService } from './../shared/services/consulta-cep.service';
-import { Observable } from 'rxjs';
 import { FormValidations } from '../shared/form-validations';
 import { VerificaEmailService } from './services/verifica-email.service';
-import { map } from 'rxjs/operators';
+
+import { empty, Observable } from 'rxjs';
+import { distinctUntilChanged, map, switchMap, tap } from 'rxjs/operators';
 
 
 @Component({
@@ -63,7 +64,7 @@ export class DataFormComponent implements OnInit {
     // });
 
     this.formulario = this.formBuilder.group({
-        nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(5)]],
+        nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(300)]],
         email: [null, [Validators.required, Validators.email], [this.validarEmail.bind(this)]],
         confirmarEmail: [null, [FormValidations.equalsTo('email')]],
 
@@ -82,6 +83,17 @@ export class DataFormComponent implements OnInit {
         termos: [null, Validators.pattern('true')],
         frameworks: this.buildFrameworks()
     });
+
+    this.formulario.get('endereco.cep').statusChanges
+      .pipe(
+        distinctUntilChanged(),
+        tap(value => console.log('status CEP:', value)),
+        switchMap(status => status === 'VALID' ?
+          this.cepService.consultaCEP(this.formulario.get('endereco.cep').value)
+        : empty()
+        )
+      )
+      .subscribe(dados => dados ? this.populaDadosForm(dados) : {} );
   }
 
   buildFrameworks(){
