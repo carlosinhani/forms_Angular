@@ -11,6 +11,7 @@ import { InputFieldComponent } from './input-field/input-field.component';
 
 
 
+
 @NgModule({
   declarations: [
     FormDebugComponent,
@@ -28,7 +29,7 @@ import { InputFieldComponent } from './input-field/input-field.component';
     FormDebugComponent,
     CampoControlErroComponent,
     ErrorMsgComponent,
-    InputFieldComponent
+    InputFieldComponent,
   ],
   providers: [
     DropdownService

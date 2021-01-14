@@ -170,10 +170,10 @@
         </select>
       </div>
 
-      <div class="col-md-4" [ngClass]=" aplicaCssErro('newsletter')">
+      <div class="col-md-3" [ngClass]=" aplicaCssErro('newsletter')">
         <label for="newsletter" class="control-label">News letter</label>
           <div id="newsletter" class="row">
-            <div class="col-sm-4" *ngFor="let item of newsletterOp" >
+            <div class="col-sm-3" *ngFor="let item of newsletterOp" >
               <label class="radio-inlane">
                 <input type="radio" [value]="item.valor" formControlName="newsletter" /> {{ item.desc }}
               </label>
