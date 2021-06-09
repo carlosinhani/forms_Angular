@@ -46,7 +46,7 @@ export abstract class BaseFormComponent implements OnInit {
     return (
      !this.formulario.get(campo).valid &&
      (this.formulario.get(campo).touched || this.formulario.get(campo).dirty)
-     );
+     );   
   }
 
   verificaRequired(campo: string){
