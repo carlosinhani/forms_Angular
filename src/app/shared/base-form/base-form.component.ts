@@ -68,7 +68,7 @@ export abstract class BaseFormComponent implements OnInit {
        'has-error': this.verificaValidTouched(campo),
        'has-feedback': this.verificaValidTouched(campo)
      }
-  }
+  }       
 
   getFrameworksControls(){
     return this.formulario.get('frameworks') ?
